@@ -5,20 +5,44 @@
     <title>Experience Level vs Job Title Heat Map</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <style>
-        body {
+       body {
             display: flex;
             justify-content: center;
-            align-items: center;
-            flex-direction: column; /* Organizes content vertically */
+            align-items: flex-start;
+            flex-direction: row; /* Changed to row for a side-by-side layout */
             height: 100vh;
             margin: 0;
+            font-family: Arial, sans-serif;
         }
+        #chart-container {
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            margin-right: 20px; /* Add space between chart and description */
+        }
+        
         h1 {
             text-align: center;
-            margin-bottom: 20px; /* Adds space between the heading and the SVG */
+            white-space: nowrap;
+            margin-left: 10px;
+            
+        }
+        
+        p {
+            margin-top: 180px; /* Position the description lower */
+            width: 600px; /* Increased width of the description */
+            margin-left: -250px; /* Adjust horizontal position */
+            align-content: normal;
+            text-align: justify;
         }
         svg {
             font: 10px sans-serif;
+            /* Reduced width and height for the SVG */
+            width: 1600px;
+            height: 630px;
+            margin-right:50px;
+            margin-top: 75px;
+           
         }
         .tile {
             stroke-width: 0;
@@ -40,7 +64,8 @@
 </head>
 <body>
     <h1>Experience Level vs Job Title</h1>
-    <svg width="800" height="500"></svg>
+    <p>The heatmap titled "Experience Level vs Job Title," where horizontal bars represent various job titles sorted by experience levels: Entry-level, Mid-level, Senior, and Executive. The bars' color intensity seems to correlate with a specific metric, likely the number of positions or demand. Warmer colors highlight bars more prominently, indicating a higher value for the metric, while cooler colors suggest lower values. This heatmap effectively shows which job titles are more prevalent or in-demand across different experience levels</p>
+    <svg width="700" height="400"></svg>
     <div class="tooltip"></div>
     <script>
         const svg = d3.select("svg"),
